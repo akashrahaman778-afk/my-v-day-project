@@ -11,20 +11,20 @@ const gifStages = [
 
 const noMessages = [
     "No",
-    "Are you positive? 🤔",
-    "Pookie please... 🥺",
-    "If you say no, I will be really sad...",
-    "I will be very sad... 😢",
-    "Please??? 💔",
-    "Don't do this to me...",
-    "Last chance! 😭",
-    "You can't catch me anyway 😜"
+    "Vabila? 🤔",
+    "Arekbar vabila... 🥺",
+    "Dobara sochlo...",
+    "Dek vabia shunia bhujia no kois... 😢",
+    "Shottttttttiiiii ??? 💔",
+    "Atotuk ni amrr friendship...",
+    "Ami vbsi na tora ita korbe! 😭",
+    "Fzlmi ni doria dekha 😜"
 ]
 
 const yesTeasePokes = [
-    "try saying no first... I bet you want to know what happens 😏",
-    "go on, hit no... just once 👀",
-    "you're missing out 😈",
+    "DOM THAKLE NO MARIA DEKHA 😏",
+    "MAR MAR NO MAR 👀",
+    "ALELE FARRE NNI  😈",
     "click no, I dare you 😏"
 ]
 
