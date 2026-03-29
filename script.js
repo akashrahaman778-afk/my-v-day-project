@@ -32,7 +32,6 @@ let yesTeasedCount = 0
 
 let noClickCount = 0
 let runawayEnabled = false
-let musicPlaying = true
 
 const catGif = document.getElementById('cat-gif')
 const yesBtn = document.getElementById('yes-btn')
@@ -40,21 +39,20 @@ const noBtn = document.getElementById('no-btn')
 const music = document.getElementById('bg-music')
 
 function handleYesClick() {
-    const img = document.getElementById("cat-gif");
-
-    img.src = "triochaos.jpg";
+   
+    catGif.src = "triochaos.jpg";
     
-    music.muted = false;
     music.currentTime = 0;
-    music.play();
-    
-    if (!runawayEnabled) {
-        const msg = yesTeasePokes[Math.min(yesTeasedCount,yesTeasePokes.length - 1)]
-        yesTeasedCount++
-        showTeaseMessage(msg)
-        return
+    music.muted = false;
+    const playPromise = music.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            console.log("Autoplay blocked");
+        });
     }
-    window.location.href = 'yes.html'
+        
+   // window.location.href = 'yes.html'
 }
 
 function showTeaseMessage(msg) {
@@ -105,8 +103,13 @@ function swapGif(src) {
 }
 
 function enableRunaway() {
-    noBtn.addEventListener('mouseover', runAway)
-    noBtn.addEventListener('touchstart', runAway, { passive: true })
+    noBtn.addEventListener('mouseover', runAway);
+    noBtn.addEventListener('click', function(e) {
+        if (runawayEnabled) {
+            e.preventDefault();
+            runAway();
+        }
+    })
 }
 
 function runAway() {
