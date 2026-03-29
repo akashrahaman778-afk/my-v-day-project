@@ -52,24 +52,14 @@ music.play().then(() => {
     }, { once: true })
 })
 
-function toggleMusic() {
-    if (musicPlaying) {
-        music.pause()
-        musicPlaying = false
-        document.getElementById('music-toggle').textContent = '🔇'
-    } else {
-        music.muted = false
-        music.play()
-        musicPlaying = true
-        document.getElementById('music-toggle').textContent = '🔊'
-    }
-}
-
 function handleYesClick() {
-    document.getElementById("bg-music").play();
+    const music = document.getElementById("bg-music").play();
+    music.muted = false;
+    music.currentTime = 0;
+    music.play();
+    
     if (!runawayEnabled) {
-        // Tease her to try No first
-        const msg = yesTeasePokes[Math.min(yesTeasedCount, yesTeasePokes.length - 1)]
+        const msg = yesTeasePokes[Math.min(yesTeasedCount,yesTeasePokes.length - 1)]
         yesTeasedCount++
         showTeaseMessage(msg)
         return
