@@ -39,21 +39,14 @@ const yesBtn = document.getElementById('yes-btn')
 const noBtn = document.getElementById('no-btn')
 const music = document.getElementById('bg-music')
 
-// Autoplay: audio starts muted (bypasses browser policy), unmute immediately
-music.muted = true
-music.volume = 0.3
-music.play().then(() => {
-    music.muted = false
-}).catch(() => {
-    // Fallback: unmute on first interaction
-    document.addEventListener('click', () => {
-        music.muted = false
-        music.play().catch(() => {})
-    }, { once: true })
-})
-
 function handleYesClick() {
-    const music = document.getElementById("bg-music").play();
+    const img = document.getElementById("cat-gif");
+
+    // show your image
+    img.src = "triochaos.jpg";  // your file name
+    img.style.display = "block";
+    // play music
+    const music = document.getElementById("bg-music");
     music.muted = false;
     music.currentTime = 0;
     music.play();
