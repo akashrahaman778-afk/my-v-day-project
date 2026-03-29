@@ -84,21 +84,20 @@ function handleNoClick() {
 // ===== RUNAWAY BUTTON =====
 function enableRunaway() {
 
-    // desktop
+    // Desktop
     noBtn.addEventListener('mouseover', runAway);
 
-    // mobile fix
-    noBtn.addEventListener('touchstart', function(e) {
+    // Mobile
+    noBtn.addEventListener('touchstart', function() {
         if (runawayEnabled) {
-            e.preventDefault();
             runAway();
         }
-    }, { passive: false });
+    });
 
-    // extra safety
+    // Prevent click after move
     noBtn.addEventListener('click', function(e) {
         if (runawayEnabled) {
-            e.preventDefault();
+            e.stopImmediatePropagation();
             runAway();
         }
     });
