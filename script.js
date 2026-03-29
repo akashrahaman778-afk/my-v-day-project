@@ -42,11 +42,8 @@ const music = document.getElementById('bg-music')
 function handleYesClick() {
     const img = document.getElementById("cat-gif");
 
-    // show your image
-    img.src = "triochaos.jpg";  // your file name
-    img.style.display = "block";
-    // play music
-    const music = document.getElementById("bg-music");
+    img.src = "triochaos.jpg";
+    
     music.muted = false;
     music.currentTime = 0;
     music.play();
