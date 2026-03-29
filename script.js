@@ -66,6 +66,7 @@ function toggleMusic() {
 }
 
 function handleYesClick() {
+    document.getElementById("bg-music").play();
     if (!runawayEnabled) {
         // Tease her to try No first
         const msg = yesTeasePokes[Math.min(yesTeasedCount, yesTeasePokes.length - 1)]
