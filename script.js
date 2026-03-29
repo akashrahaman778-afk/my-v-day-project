@@ -53,7 +53,7 @@ const noMessages = [
     "Arekbar vabila... 🥺",
     "Dobara sochlo...",
     "Dek vabia shunia bhujia no kois... 😢",
-    "Shottttttttiiiii ??? 💔",
+    "MAIN NHI DIKHAUNGA ??? ",
     "Atotuk ni amrr friendship...",
     "Ami vbsi na tora ita korbe! 😭",
     "Fzlmi ni doria dekha 😜"
@@ -71,16 +71,16 @@ function handleNoClick() {
 
     // grow YES button
     const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize)
-    yesBtn.style.fontSize = ${currentSize * 1.35}px
+    yesBtn.style.fontSize = '${currentSize * 1.35}px'
 
     const padY = Math.min(18 + noClickCount * 5, 60)
     const padX = Math.min(45 + noClickCount * 10, 120)
-    yesBtn.style.padding = ${padY}px ${padX}px
+    yesBtn.style.padding = '${padY}px ${padX}px'
 
     // shrink NO
     if (noClickCount >= 2) {
         const noSize = parseFloat(window.getComputedStyle(noBtn).fontSize)
-        noBtn.style.fontSize = ${Math.max(noSize * 0.85, 10)}px
+        noBtn.style.fontSize = '${Math.max(noSize * 0.85, 10)}px'
     }
 
     // change GIF
@@ -97,13 +97,12 @@ function handleNoClick() {
 // ===== RUNAWAY BUTTON =====
 function enableRunaway() {
 
-    // desktop
+    // desktop (mouse)
     noBtn.addEventListener('mouseover', runAway);
 
-    // mobile
-    noBtn.addEventListener('click', function(e) {
+    // mobile (touch)
+    noBtn.addEventListener('touchstart', function(e) {
         if (runawayEnabled) {
-            e.preventDefault();
             runAway();
         }
     });
@@ -119,6 +118,6 @@ function runAway() {
     const randomY = Math.random() * maxY
 
     noBtn.style.position = 'fixed'
-    noBtn.style.left = ${randomX}px
-    noBtn.style.top = ${randomY}px
+    noBtn.style.left = '${randomX}px'
+    noBtn.style.top = '${randomY}px'
 }
